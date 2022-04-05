@@ -9,6 +9,7 @@ public class IndexContinentModel : PageModel
 {
     private readonly IUnitOfWork _unitOfWork;
     public IEnumerable<Continent> Continents { get; set; }
+    public IEnumerable<Continent> countryCount { get; set; }
 
     public IndexContinentModel(IUnitOfWork unitOfWork) =>
         _unitOfWork = unitOfWork;
@@ -19,4 +20,5 @@ public class IndexContinentModel : PageModel
         await _unitOfWork.CompleteAsync();
         return Page();
     }
+
 }

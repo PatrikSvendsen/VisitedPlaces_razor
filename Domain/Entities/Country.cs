@@ -10,9 +10,7 @@ public class Country
     public int Id { get; set; }
     [Required]
     public string Name { get; set; }
-    public int? Population { get; set; } = 0;
     public string MainLanguage { get; set; }
-    public string? SecondLanguage { get; set; }
     public int? YearVisited { get; set; }
     public int? TimesVisited { get; set; }
 
@@ -21,6 +19,6 @@ public class Country
     public ICollection<CountryRegion>? CountryRegions { get; set; }
 
     [ForeignKey(nameof(Continent))]
-    public int? WorldRegionId { get; set; }
+    public int? ContinentId { get; set; }
     public Continent? Continent { get; set; }
 }

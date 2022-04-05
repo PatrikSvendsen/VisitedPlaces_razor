@@ -13,44 +13,37 @@ public class ContinentConfiguration : IEntityTypeConfiguration<Continent>
             new Continent
             {
                 Id = 1,
-                Name = "Asia",
-                Population = 4400000000
+                Name = "Asia"
             },
             new Continent
             {
                 Id = 2,
-                Name = "Europe",
-                Population = 746419440
+                Name = "Europe"
             },
             new Continent
             {
                 Id = 3,
-                Name = "Africa",
-                Population = 1275920972
+                Name = "Africa"
             },
             new Continent
             {
                 Id = 4,
-                Name = "North America",
-                Population = 592296233
+                Name = "North America"
             },
             new Continent
             {
                 Id = 5,
-                Name = "South America",
-                Population = 423581078
+                Name = "South America"
             },
             new Continent
             {
                 Id = 6,
-                Name = "Antarctica",
-                Population = 1000
+                Name = "Antarctica"
             },
             new Continent
             {
                 Id = 7,
-                Name = "Oceania",
-                Population =41570842
+                Name = "Oceania"
             }
         );
     }

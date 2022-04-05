@@ -29,7 +29,12 @@ public class RepositoryContext : DbContext
             .HasMany(ci => ci.Cities)
             .WithOne(co => co.Country)
             .HasForeignKey(c => c.CountryId);
-            //.HasConstraintName(nameof(Country.Id));
+        //.HasConstraintName(nameof(Country.Id));
+
+        modelBuilder.Entity<Continent>()
+            .HasMany(co => co.Countries)
+            .WithOne(c => c.Continent)
+            .HasForeignKey(x => x.ContinentId);
 
     }
 }

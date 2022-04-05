@@ -4,6 +4,7 @@ using DataAccess.EFCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace VisitedPlaces_razor.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20220405104157_FixedNameConventioninCountryclass")]
+    partial class FixedNameConventioninCountryclass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,22 +33,21 @@ namespace VisitedPlaces_razor.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("BestMemory")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("CountryId")
                         .HasColumnType("int");
 
                     b.Property<int?>("CountryRegionId")
                         .HasColumnType("int");
 
-                    b.Property<bool?>("IsCapital")
+                    b.Property<bool>("IsCapital")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Population")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -70,6 +71,9 @@ namespace VisitedPlaces_razor.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<long?>("Population")
+                        .HasColumnType("bigint");
+
                     b.HasKey("Id");
 
                     b.ToTable("Continents");
@@ -78,37 +82,44 @@ namespace VisitedPlaces_razor.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Asia"
+                            Name = "Asia",
+                            Population = 4400000000L
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Europe"
+                            Name = "Europe",
+                            Population = 746419440L
                         },
                         new
                         {
                             Id = 3,
-                            Name = "Africa"
+                            Name = "Africa",
+                            Population = 1275920972L
                         },
                         new
                         {
                             Id = 4,
-                            Name = "North America"
+                            Name = "North America",
+                            Population = 592296233L
                         },
                         new
                         {
                             Id = 5,
-                            Name = "South America"
+                            Name = "South America",
+                            Population = 423581078L
                         },
                         new
                         {
                             Id = 6,
-                            Name = "Antarctica"
+                            Name = "Antarctica",
+                            Population = 1000L
                         },
                         new
                         {
                             Id = 7,
-                            Name = "Oceania"
+                            Name = "Oceania",
+                            Population = 41570842L
                         });
                 });
 
@@ -130,6 +141,12 @@ namespace VisitedPlaces_razor.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Population")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SecondLanguage")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("TimesVisited")
@@ -154,12 +171,15 @@ namespace VisitedPlaces_razor.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("CountryId")
+                    b.Property<int>("CountryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Population")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -196,7 +216,9 @@ namespace VisitedPlaces_razor.Migrations
                 {
                     b.HasOne("Domain.Entities.Country", "Country")
                         .WithMany("CountryRegions")
-                        .HasForeignKey("CountryId");
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Country");
                 });

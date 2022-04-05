@@ -10,10 +10,8 @@ public class City
     public int Id { get; set; }
     [Required]
     public string Name { get; set; }
-    public bool IsCapital { get; set; }
-    public int? Population { get; set; } = 0;
-    //public int? FirstYearVisited { get; set; }
-    //public int? TimesVisited { get; set; }
+    public bool? IsCapital { get; set; }
+    public string BestMemory { get; set; } = string.Empty;
 
     [ForeignKey(nameof(Country))]
     public int? CountryId { get; set; }

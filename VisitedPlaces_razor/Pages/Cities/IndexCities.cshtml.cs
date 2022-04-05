@@ -10,7 +10,6 @@ public class IndexCitiesModel : PageModel
 {
     private readonly IUnitOfWork _unitOfWork;
     public IEnumerable<City> Cities { get; set; }
-    public Country Country { get; set; }
 
     public IndexCitiesModel(IUnitOfWork unitOfWork) =>
         _unitOfWork = unitOfWork;
@@ -18,7 +17,6 @@ public class IndexCitiesModel : PageModel
 
     public async Task<IActionResult> OnGetAsync()
     {
-
         Cities = await _unitOfWork.Cities.GetAll();
         await _unitOfWork.CompleteAsync();
         return Page();

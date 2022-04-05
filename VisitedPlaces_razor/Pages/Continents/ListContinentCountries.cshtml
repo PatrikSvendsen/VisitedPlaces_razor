@@ -1,0 +1,52 @@
+﻿@page 
+@model VisitedPlaces_razor.Pages.Continents.ListContinentCountriesModel
+@{
+}
+
+<div class="container-fluid vh-100 d-flex">
+    <div class="col-sm col">
+        <table id="myTable" class="table">
+            <thead>
+                <tr>
+                    <th>                         
+                        Continent
+                    </th>
+                    <th>
+                        Country
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.countryCount)
+                {
+                  if(@item.Countries.Count() == 0)
+                        {
+                            <tr>
+                                <td>
+                                    <p>
+                                       You have not been to this continent yet.<br/>
+                                    </p>
+                                </td>
+                            </tr>
+                        }
+
+                    @foreach(var country in @item.Countries)
+                    {
+
+                        <tr>
+                        <td>
+                            @country.Continent.Name
+                        </td>
+                        <td>
+                            @country.Name
+                        </td>
+                        <td></td>
+                    </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <a asp-page="/Continents/IndexContinent" class="btn btn-outline-secondary ">Go back!</a>
+    </div>
+</div>

@@ -17,10 +17,6 @@
             <label asp-for="Country.MainLanguage"></label> 
             <input asp-for="@Model.Country.MainLanguage" class="form-control" />
         </div>
-                <div class="mb-3">
-            <label asp-for="Country.SecondLanguage"></label> 
-            <input asp-for="@Model.Country.SecondLanguage" class="form-control" />
-        </div>
         <div class="mb-3">
             <label asp-for="Country.YearVisited"></label> 
             <input asp-for="@Model.Country.YearVisited" class="form-control" />
@@ -29,9 +25,19 @@
             <label asp-for="Country.TimesVisited"></label> 
             <input asp-for="@Model.Country.TimesVisited" class="form-control" />
         </div>
-        <div class="mb-3">
+@*        <div class="mb-3">
             <label asp-for="Country.Cities"></label> 
             <input asp-for="@Model.Country.Cities" class="form-control" />
+        </div>*@
+                <div class="mb-3">
+            <label asp-for="Country.Continent"></label> 
+            <select  asp-items="@Model.continents
+                                    .Select(x => new SelectListItem
+                                    { 
+                                    Text = x.Name, 
+                                    Value = x.Id.ToString()})", asp-for="Country.ContinentId" >
+                                <option value="" >-- Select Continent --</option>
+                                </select>
         </div>
         <button type="submit" class="btn btn-success" style="width:100px">
             Add

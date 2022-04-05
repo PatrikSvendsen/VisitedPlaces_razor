@@ -26,9 +26,6 @@
                         and they speak
                     </th>
                     <th>
-                        and this too!
-                    </th>
-                    <th>
                         First time I was here
                     </th>
                     <th>
@@ -41,7 +38,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.Countries2)
+                @foreach (var item in Model.Countries)
                 {
                     <tr>
                         <td>
@@ -49,9 +46,6 @@
                         </td>
                         <td>
                             @item.MainLanguage
-                        </td>
-                        <td>
-                            @item.SecondLanguage
                         </td>
                         <td>
                             @item.YearVisited
@@ -63,9 +57,8 @@
                         <td>
                             @foreach(var city in @item.Cities)
                             {
-                                @city.Name
+                                @city.Name <br />
                             }
-
                         </td>
                         <td>
                         </td>

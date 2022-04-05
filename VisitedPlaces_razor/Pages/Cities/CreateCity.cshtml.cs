@@ -11,11 +11,14 @@ public class CreateCityModel : PageModel
     public IEnumerable<Country> allCountries { get; set; }
     public City City { get; set; }
 
+    [BindProperty(SupportsGet = true)]
+    public bool IsCapital { get; set; }
+
 
     public CreateCityModel(IUnitOfWork unitOfWork) => 
         _unitOfWork = unitOfWork;
 
-    public async Task OnGet()
+    public async Task OnGetAsync()
     {
         allCountries = await _unitOfWork.Countries.GetAll();
     }
