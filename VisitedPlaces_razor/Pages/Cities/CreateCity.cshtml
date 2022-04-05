@@ -1,0 +1,38 @@
+﻿@page
+@model VisitedPlaces_razor.Pages.Cities.CreateCityModel
+@{
+}
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row  pb-2">
+            <h2 class="text-success pl-3">Add City</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="City.Name"></label> 
+            <input asp-for="@Model.City.Name" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="City.IsCapital"></label> 
+            <input asp-for="@Model.City.IsCapital" class="form-control" />
+        </div>
+                <div class="mb-3">
+            <label asp-for="City.Country"></label> 
+            <select  asp-items="@Model.allCountries
+                                    .Select(x => new SelectListItem
+                                    { 
+                                    Text = x.Name, 
+                                    Value = x.Id.ToString()})", asp-for="City.CountryId" >
+                                <option value="" >-- Select Country --</option>
+                                </select>
+        </div>
+@*        <div class="mb-3">
+            <label asp-for="City.CountryRegion"></label> 
+            <input asp-for="@Model.City.CountryRegion" class="form-control" />
+        </div>*@
+        <button type="submit" class="btn btn-success" style="width:100px">
+            Add
+        </button>
+    </div>
+</form>

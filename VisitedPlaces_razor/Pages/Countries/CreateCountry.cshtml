@@ -1,0 +1,40 @@
+﻿@page
+@model VisitedPlaces_razor.Pages.Countries.CreateCountryModel
+@{
+}
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row  pb-2">
+            <h2 class="text-success pl-3">Add Country</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Country.Name"></label> 
+            <input asp-for="@Model.Country.Name" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Country.MainLanguage"></label> 
+            <input asp-for="@Model.Country.MainLanguage" class="form-control" />
+        </div>
+                <div class="mb-3">
+            <label asp-for="Country.SecondLanguage"></label> 
+            <input asp-for="@Model.Country.SecondLanguage" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Country.YearVisited"></label> 
+            <input asp-for="@Model.Country.YearVisited" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Country.TimesVisited"></label> 
+            <input asp-for="@Model.Country.TimesVisited" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Country.Cities"></label> 
+            <input asp-for="@Model.Country.Cities" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-success" style="width:100px">
+            Add
+        </button>
+    </div>
+</form>

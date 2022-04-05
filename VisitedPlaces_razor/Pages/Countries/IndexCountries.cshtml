@@ -1,0 +1,72 @@
+﻿@page
+@model VisitedPlaces_razor.Pages.Countries.IndexCountriesModel
+@{
+}
+
+<div class="row pt-4">
+    <div class="col-6">
+        <h2 class="">All the countries I have been to</h2>
+    </div>
+    <div class="col-6">
+        <a asp-page="createCountry" class="btn btn-outline-success">
+            Add a Country
+        </a>
+    </div>
+</div>
+
+<div class="container-fluid vh-100 d-flex">
+    <div class="col-sm col">
+        <table id="myTable" class="table">
+            <thead>
+                <tr>
+                    <th>                         
+                        This is the country!
+                    </th>
+                    <th>
+                        and they speak
+                    </th>
+                    <th>
+                        and this too!
+                    </th>
+                    <th>
+                        First time I was here
+                    </th>
+                    <th>
+                        and second time, third time....
+                    </th>
+                    <th>
+                        All the cities I have visited! :)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Countries2)
+                {
+                    <tr>
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                            @item.MainLanguage
+                        </td>
+                        <td>
+                            @item.SecondLanguage
+                        </td>
+                        <td>
+                            @item.YearVisited
+                        </td>
+                        <td>
+                            @item.TimesVisited
+                        </td>
+                        <td>
+                            @item.Cities
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
