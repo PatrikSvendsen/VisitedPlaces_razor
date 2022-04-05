@@ -13,23 +13,13 @@
             <label asp-for="City.Name"></label> 
             <input asp-for="@Model.City.Name" class="form-control" />
         </div>
-@*        <div class="mb-3">
-            <label asp-for="City.IsCapital"></label> 
-            <input asp-for="@Model.City." class="form-control" />
-        </div>*@
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="IsCapital" id="Yes" value="false">
-          <label class="form-check-label" for="IsCapital">
-            false 0
+          <input class="form-check-input" type="checkbox" value="true" id="IsCapital" asp-for="IsCapital" >
+          <label class="form-check-label" asp-for="IsCapital">
+            Is this a capital city?
           </label>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="IsCapital" id="No" value="true" checked>
-          <label class="form-check-label" for="IsCapital">
-            true 1
-          </label>
-        </div>
-        <div class="mb-3">
+        <div class="dropdown-">
             <label asp-for="City.Country"></label> 
             <select  asp-items="@Model.allCountries
                                     .Select(x => new SelectListItem
@@ -38,6 +28,10 @@
                                     Value = x.Id.ToString()})", asp-for="City.CountryId" >
                                 <option value="" >-- Select Country --</option>
                                 </select>
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">My best memory</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
 @*        <div class="mb-3">
             <label asp-for="City.CountryRegion"></label> 

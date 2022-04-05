@@ -25,6 +25,7 @@ public class CreateCityModel : PageModel
 
     public async Task<IActionResult> OnPost(City city)
     {
+        city.IsCapital = IsCapital;             //TODO Detta är ingen bra lösning men checkboxes är fan jobbiga. Funkar 
         await _unitOfWork.Cities.Insert(city);
         await _unitOfWork.CompleteAsync();
         return RedirectToPage("IndexCities");
