@@ -11,16 +11,17 @@ public class CityRepository : GenericRepository<City>, ICityRepository
     {
     }
 
-    //public Task<IEnumerable<City>> GetDetailedList()
-    //{
-    //    //var detailedCityList = from s in _repositoryContext.Countries
-    //    //                       join st in studentAdditionalInfo on s.Id equals st.StudentId into st2
-    //    //                       from st in st2.DefaultIfEmpty()
-    //    //                       select new StudentViewModel { studentVm = s, studentAdditionalInfoVm = st };
+    public async Task<IEnumerable<City>> GetDetailedList()
+    {
+        var countryList = _repositoryContext.Countries;
+        var cityList = _repositoryContext.Cities;
 
+        var detailedCityList = from country in countryList
+                               join cities in cityList
+                               on country.Id equals cities.CountryId
+                               orderby country.Name
+                               select cities;
 
-    //    var testList = _repositoryContext.Cities
-    //        .Include(x => x.Country)
-    //        .ThenInclude(y => y.)
-    //}
+        return detailedCityList;
+    }
 }

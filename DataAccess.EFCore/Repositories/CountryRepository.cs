@@ -16,7 +16,7 @@ public class CountryRepository : GenericRepository<Country>, ICountryRepository
         var list = await _repositoryContext.Countries
             .Include(ci => ci.Cities)
             .ToListAsync();
+
         return list;
-        
     }
 }

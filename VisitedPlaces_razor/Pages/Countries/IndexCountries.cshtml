@@ -58,9 +58,14 @@
                         </td>
                         <td>
                             @item.TimesVisited
+
                         </td>
                         <td>
-                            @item.Cities
+                            @foreach(var city in @item.Cities)
+                            {
+                                @city.Name
+                            }
+
                         </td>
                         <td>
                         </td>
