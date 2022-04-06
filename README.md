@@ -1,4 +1,4 @@
-This is a passion project.
+Passion project.
 --
-
 This is a WIP
+
