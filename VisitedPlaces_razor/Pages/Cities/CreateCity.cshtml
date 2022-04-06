@@ -9,17 +9,17 @@
             <h2 class="text-success pl-3">Add City</h2>
             <hr />
         </div>
-        <div class="mb-3">
+        <div class="mb-3 m-4">
             <label asp-for="City.Name"></label> 
             <input asp-for="@Model.City.Name" class="form-control" />
         </div>
-        <div class="form-check">
+        <div class="form-check m-4">
           <input class="form-check-input" type="checkbox" value="true" id="IsCapital" asp-for="IsCapital" >
           <label class="form-check-label" asp-for="IsCapital">
             Is this a capital city?
           </label>
         </div>
-        <div class="dropdown-">
+        <div class="dropdown m-4">
             <label asp-for="City.Country"></label> 
             <select  asp-items="@Model.allCountries
                                     .Select(x => new SelectListItem
@@ -29,16 +29,20 @@
                                 <option value="" >-- Select Country --</option>
                                 </select>
         </div>
-        <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">My best memory</label>
+
+@*        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label"><h4>My best memory</h4></label>
           <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
+        </div>*@
+
 @*        <div class="mb-3">
             <label asp-for="City.CountryRegion"></label> 
             <input asp-for="@Model.City.CountryRegion" class="form-control" />
         </div>*@
-        <button type="submit" class="btn btn-success" style="width:100px">
-            Add
-        </button>
+        <div class="m-4">
+            <button type="submit" class="btn btn-success" style="width:100px">
+                Add
+            </button>
+        </div>
     </div>
 </form>

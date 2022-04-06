@@ -8,6 +8,7 @@ public class City
     [Key]
     [Column("CityId")]
     public int Id { get; set; }
+
     [Required]
     public string Name { get; set; }
     public bool IsCapital { get; set; } = false;
