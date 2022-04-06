@@ -3,20 +3,26 @@
 @{
 }
 
-<div class="container-fluid vh-100 d-flex">
-    <div class="col-sm col">
-        <table id="myTable" class="table">
+<div class="ui container"></div>
+<div class="ui clearing segment"><div class="ui container"></div>
+  <h1 class="ui left floated header">
+    Continents of the world.
+  </h1>
+</div>
+
+<div class="ui container">
+    <div class="ui container"></div>
+        <table class="ui celled table">
             <thead>
                 <tr>
-                    <th>                         
+                    <th>
                         Name
                     </th>
                     <th>
-                        Population
+                        List of all countries in continent
                     </th>
-                    <th></th>
-                </tr>
-            </thead>
+              </tr>
+              </thead>
             <tbody>
                 @foreach (var item in Model.Continents)
                 {
@@ -29,11 +35,8 @@
                               asp-route-id="@item.Id" >
                                 Click here for all countries</a>
                         </td>
-                        <td>
-                        </td>
                     </tr>
                 }
             </tbody>
         </table>
-    </div>
 </div>

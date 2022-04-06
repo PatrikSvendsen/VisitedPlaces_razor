@@ -8,6 +8,9 @@ public class CountryRegion
     [Key]
     [Column("CountryRegionId")]
     public int Id { get; set; }
+
+    [Required(ErrorMessage = "This field needs to be filled")]
+    [MaxLength(30)]
     public string Name { get; set; }
 
     public ICollection<City>? Cities { get; set; }

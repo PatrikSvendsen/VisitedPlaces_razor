@@ -3,9 +3,16 @@
 @{
 }
 
-<div class="container-fluid vh-100 d-flex">
-    <div class="col-sm col">
-        <table id="myTable" class="table">
+<div class="ui container"></div>
+<div class="ui clearing segment"><div class="ui container"></div>
+  <h1 class="ui left floated header">
+    Countries!!
+  </h1>
+</div>
+
+<div class="ui container">
+    <div class="ui container"></div>
+        <table class="ui celled table">
             <thead>
                 <tr>
                     <th>                         
@@ -14,7 +21,6 @@
                     <th>
                         Country
                     </th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -25,7 +31,7 @@
                             <tr>
                                 <td>
                                     <p>
-                                       You have not been to this continent yet.<br/>
+                                       You have not been to this continent.<br/>
                                     </p>
                                 </td>
                             </tr>
@@ -41,12 +47,11 @@
                         <td>
                             @country.Name
                         </td>
-                        <td></td>
                     </tr>
                     }
                 }
             </tbody>
         </table>
-        <a asp-page="/Continents/IndexContinent" class="btn btn-outline-secondary ">Go back!</a>
+        <a asp-page="/Continents/IndexContinent" class="ui button">Go back!</a>
     </div>
 </div>

@@ -8,9 +8,12 @@ public class Country
     [Key]
     [Column("CountryId")]
     public int Id { get; set; }
-    [Required]
+    [Required(ErrorMessage = "This field needs to be filled out")]
+    [MaxLength(50)]
     public string Name { get; set; }
-    public string MainLanguage { get; set; }
+
+    [MaxLength(50)]
+    public string? MainLanguage { get; set; }
     public int? YearVisited { get; set; }
     public int? TimesVisited { get; set; }
 

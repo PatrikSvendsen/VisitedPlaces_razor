@@ -9,9 +9,12 @@ public class City
     [Column("CityId")]
     public int Id { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "This field needs to be filled out")]
+    [MaxLength(30)]
     public string Name { get; set; }
     public bool IsCapital { get; set; } = false;
+
+    [MaxLength(200)]
     public string BestMemory { get; set; } = string.Empty;
 
     [ForeignKey(nameof(Country))]
