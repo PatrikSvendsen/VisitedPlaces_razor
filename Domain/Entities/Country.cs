@@ -16,6 +16,8 @@ public class Country
     public string? MainLanguage { get; set; }
     public int? YearVisited { get; set; }
     public int? TimesVisited { get; set; }
+    //public string CountryShortCode { get; set; }
+    //public string CountryFlagCode { get; set; }
 
     // FK kopplingar
     public ICollection<City>? Cities{ get; set; }

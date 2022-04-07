@@ -3,12 +3,14 @@
 @{
 }
 
+<div class="ui container"></div>
+<div class="ui clearing segment"><div class="ui container"></div>
+  <h1 class="ui left floated header">
+    Fill in your country
+  </h1>
+</div>
+
 <form method="post" class="ui form">
-    <div class="border p-3 mt-4">
-        <div class="row  pb-2">
-            <h2 class="text-success pl-3">Add Country</h2>
-            <hr />
-        </div>
         <div class="field">
             <label asp-for="Country.Name"></label> 
             <input asp-for="@Model.Country.Name" class="form-control"
@@ -27,30 +29,24 @@
         </div>
         <div class="two wide field">
             <label asp-for="Country.TimesVisited"></label> 
-            <input asp-for="@Model.Country.TimesVisited" class="form-control"
-            />
+            <input asp-for="@Model.Country.TimesVisited" class="form-control"/>
         </div>
-                <div class="six wide field">
-            <label asp-for="Country.Continent"></label> 
-            <select  asp-items="@Model.continents
-                                    .Select(x => new SelectListItem
-                                    { 
-                                    Text = x.Name, 
-                                    Value = x.Id.ToString()})", asp-for="Country.ContinentId" >
-                                <option value="" >-- Select Continent --</option>
-                                </select>
-        </div>
-            <div class="ui form">
-              <div class="field">
+            <div class="two wide field">
+                 <div class="ui form">
                   <label>Continent</label>
                   <div class="ui selection dropdown">
-                      <input type="hidden" name="gender">
+                      <input asp-for="@Model.ContinentId" type="hidden" name="ContinentId">
                       <i class="dropdown icon"></i>
                       <div class="default text">Continent</div>
                       <div class="menu">
-                          <div class="item" name="ContinentId" data-value="1">Asia</div>
+                          <div class="item" data-value="1">Asia</div>
                           <div class="item" data-value="2">Europe</div>
                           <div class="item" data-value="3">Africa</div>
+                          <div class="item" data-value="4">North America</div>
+                          <div class="item" data-value="5">South America</div>
+                          <div class="item" data-value="6">Antarctica</div>
+                          <div class="item" data-value="7">Oceania</div>
+
                       </div>
                   </div>
               </div>
@@ -61,8 +57,8 @@
             <label asp-for="Country.Cities"></label> 
             <input asp-for="@Model.Country.Cities" class="form-control" />
         </div>*@
+
         <button type="submit" class="ui button" style="width:100px">
             Add
         </button>
-    </div>
 </form>

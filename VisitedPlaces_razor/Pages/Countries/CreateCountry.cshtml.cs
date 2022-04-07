@@ -11,6 +11,9 @@ public class CreateCountryModel : PageModel
     public IEnumerable<Continent> continents { get; set; }
     public Country Country { get; set; }
 
+    [BindProperty(SupportsGet = true)]
+    public int ContinentId { get; set; }
+
     public CreateCountryModel(IUnitOfWork unitOfWork) =>
         _unitOfWork = unitOfWork;
 
@@ -21,6 +24,7 @@ public class CreateCountryModel : PageModel
 
     public async Task<IActionResult> OnPost(Country country)
     {
+        country.ContinentId = ContinentId; 
         await _unitOfWork.Countries.Insert(country);
         await _unitOfWork.CompleteAsync();
         return RedirectToPage("IndexCountries");

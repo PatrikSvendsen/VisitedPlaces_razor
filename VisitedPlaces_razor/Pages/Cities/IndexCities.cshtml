@@ -3,20 +3,18 @@
 @{
 }
 
-<div class="row pt-4">
-    <div class="col-6">
-        <h2 class="">All the cities I have visited</h2>
-    </div>
-    <div class="col-6">
-        <a asp-page="createCity" class="btn btn-outline-success">
-            Add a City
-        </a>
-    </div>
+<div class="ui container"></div>
+<div class="ui clearing segment"><div class="ui container"></div>
+  <h2 class="ui left floated header">All my cities</h2>
+    <h4 class="ui right floated header">          
+      <a asp-page="createCity" class="ui button">Add city</a>
+    </h4>
 </div>
 
-<div class="container-fluid vh-100 d-flex">
-    <div class="col-sm col">
-        <table id="myTable" class="table">
+<div class="ui container">
+    <div class="ui container">
+    </div>
+        <table class="ui celled table">
             <thead>
                 <tr>
                     <th>                         
@@ -26,12 +24,11 @@
                         Capital city?
                     </th>
                     <th>
-                        Belongs to Country
+                        Lies in this region
                     </th>
                     <th>
                         My best memory from this place
                     </th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -42,15 +39,16 @@
                             @item.Name
                         </td>
                         <td>
-                            @item.Country
+                            @item.IsCapital
+                        </td>
+                        <td>
+                            @item.CountryRegion
                         </td>
                         <td>
                             @item.BestMemory
                         </td>
-                        <td></td>
                     </tr>
                 }
             </tbody>
         </table>
     </div>
-</div>
