@@ -6,3 +6,10 @@
 $('.selection.dropdown')
     .dropdown()
     ;
+
+$('.ui.checkbox')
+    .checkbox()
+    ;
+$('#select')
+    .dropdown()
+    ;

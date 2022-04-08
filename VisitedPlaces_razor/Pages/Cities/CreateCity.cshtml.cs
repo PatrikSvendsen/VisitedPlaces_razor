@@ -12,7 +12,7 @@ public class CreateCityModel : PageModel
     public City City { get; set; }
 
     [BindProperty(SupportsGet = true)]
-    public string CountryId { get; set; } // Koden måste skrivas om för att enklast lägga till land
+    public string CountryName { get; set; } // Koden måste skrivas om för att enklast lägga till land
 
 
     [BindProperty(SupportsGet = true)]

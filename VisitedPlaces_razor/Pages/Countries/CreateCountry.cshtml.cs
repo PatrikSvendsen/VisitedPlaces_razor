@@ -13,6 +13,9 @@ public class CreateCountryModel : PageModel
 
     [BindProperty(SupportsGet = true)]
     public int ContinentId { get; set; }
+    [BindProperty(SupportsGet = true)]
+    public string CountryName { get; set; }
+
 
     public CreateCountryModel(IUnitOfWork unitOfWork) =>
         _unitOfWork = unitOfWork;
@@ -24,6 +27,7 @@ public class CreateCountryModel : PageModel
 
     public async Task<IActionResult> OnPost(Country country)
     {
+        country.Name = CountryName;
         country.ContinentId = ContinentId; 
         await _unitOfWork.Countries.Insert(country);
         await _unitOfWork.CompleteAsync();
